@@ -13,7 +13,7 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 0;
+    double quantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox chocolateSyrupCheckBox = (CheckBox) findViewById(R.id.chocolate_syrup_checkbox);
         boolean addChocolateSyrup = chocolateSyrupCheckBox.isChecked();
 
-        int price = calculatePrice();
+        double price = calculatePrice(addWhippedCream, addChocolateSyrup);
         String priceMessage = createOrderSummary(price, addWhippedCream, addChocolateSyrup, name);
         displayMessage(priceMessage);
 
@@ -61,9 +61,18 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return total price of order
      */
-    private int calculatePrice() {
-        int price = quantity * 5;
-        return price;
+    private double calculatePrice(boolean whippedCreamTopping, boolean chocolateTopping) {
+        double basePrice = 5;
+
+        if (whippedCreamTopping) {
+            basePrice = basePrice + 0.50;
+        }
+
+        if (chocolateTopping) {
+            basePrice = basePrice + 0.75;
+        }
+
+        return quantity * basePrice;
     }
     /**
      * Declares: create order summary
@@ -74,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
      * @return text summary
      */
 
-    private String createOrderSummary(int price, boolean whippedCream, boolean chocolate, String name){
+    private String createOrderSummary(double price, boolean whippedCream, boolean chocolate, String name){
         String priceMessage = "Name: " + name;
         priceMessage = "\nAdd whipped cream? " + whippedCream;
         priceMessage = "\nAdd chocolate syrup? " + chocolate;
@@ -86,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void displayQuantity(int numOfCoffees) {
+    private void displayQuantity(double numOfCoffees) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + numOfCoffees);
     }
