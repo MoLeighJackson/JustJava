@@ -15,10 +15,18 @@
     android:padding="16dp">
 
     <ImageView
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         android:src="@drawable/coffee_cup_beans" />
+
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:inputType="textPersonName|textCapWords"
+        />
 
     <TextView
         android:layout_width="wrap_content"

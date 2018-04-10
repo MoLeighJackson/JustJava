@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import java.text.NumberFormat;
 
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        EditText nameInput = (EditText) findViewById(R.id.name_input);
+        String name = nameInput.getText().toString();
+
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.add_whipped_cream_checkbox);
         boolean addWhippedCream = whippedCreamCheckBox.isChecked();
         /**
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         boolean addChocolateSyrup = chocolateSyrupCheckBox.isChecked();
 
         int price = calculatePrice();
-        String priceMessage = createOrderSummary(price, addWhippedCream, addChocolateSyrup);
+        String priceMessage = createOrderSummary(price, addWhippedCream, addChocolateSyrup, name);
         displayMessage(priceMessage);
 
 
@@ -64,16 +68,19 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Declares: create order summary
      *
+     * @param whippedCream is whether or not the user wants whipped cream topping
+     * @param chocolate is whether or not the user wants chocolate topping
      * @param price of the order
      * @return text summary
      */
-    private String createOrderSummary(int price, boolean whippedCream, boolean chocolate){
-        String priceMessage = "Name: Customer 1";
-        priceMessage += "\nAdd whipped cream?" + whippedCream;
-        priceMessage += "\nAdd chocolate syrup?" + chocolate;
-        priceMessage += priceMessage + "\nNumber of coffees: " + quantity;
-        priceMessage += priceMessage + "\nOrder total: $" + price;
-        priceMessage += priceMessage + "\nThank You! \nYour order is on its way!";
+
+    private String createOrderSummary(int price, boolean whippedCream, boolean chocolate, String name){
+        String priceMessage = "Name: " + name;
+        priceMessage = "\nAdd whipped cream? " + whippedCream;
+        priceMessage = "\nAdd chocolate syrup? " + chocolate;
+        priceMessage = priceMessage + "\nNumber of coffees: " + quantity;
+        priceMessage = priceMessage + "\nOrder total: $" + price;
+        priceMessage = priceMessage + "\nThank You! \nYour order is on its way!";
         return priceMessage;
     }
     /**
