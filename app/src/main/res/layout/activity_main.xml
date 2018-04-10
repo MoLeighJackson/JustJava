@@ -25,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
+        android:layout_marginBottom="16dp"
         android:inputType="textPersonName|textCapWords"
         />
 
@@ -49,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="24dp"
-        android:text="Add Whipped Cream ($0.75)"
+        android:text="Add Whipped Cream ($0.50)"
         android:textSize="16sp" />
 
     <TextView
