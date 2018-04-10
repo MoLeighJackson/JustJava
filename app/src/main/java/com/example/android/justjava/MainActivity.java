@@ -43,9 +43,14 @@ public class MainActivity extends AppCompatActivity {
          * message to test if add whipped cream logic is working
          * Log.v("MainActivity", "Add whipped cream: " + addWhippedCream);
          */
+        CheckBox chocolateSyrupCheckBox = (CheckBox) findViewById(R.id.chocolate_syrup_checkbox);
+        boolean addChocolateSyrup = chocolateSyrupCheckBox.isChecked();
+
         int price = calculatePrice();
-        String priceMessage = createOrderSummary(price, addWhippedCream);
+        String priceMessage = createOrderSummary(price, addWhippedCream, addChocolateSyrup);
         displayMessage(priceMessage);
+
+
     }
     /**
      * Calculates the price of the order.
@@ -62,12 +67,13 @@ public class MainActivity extends AppCompatActivity {
      * @param price of the order
      * @return text summary
      */
-    private String createOrderSummary(int price, boolean whippedCream){
+    private String createOrderSummary(int price, boolean whippedCream, boolean chocolate){
         String priceMessage = "Name: Customer 1";
         priceMessage += "\nAdd whipped cream?" + whippedCream;
-        priceMessage = priceMessage + "\nNumber of coffees: " + quantity;
-        priceMessage = priceMessage + "\nOrder total: $" + price;
-        priceMessage = priceMessage + "\nThank You! \nYour order is on its way!";
+        priceMessage += "\nAdd chocolate syrup?" + chocolate;
+        priceMessage += priceMessage + "\nNumber of coffees: " + quantity;
+        priceMessage += priceMessage + "\nOrder total: $" + price;
+        priceMessage += priceMessage + "\nThank You! \nYour order is on its way!";
         return priceMessage;
     }
     /**

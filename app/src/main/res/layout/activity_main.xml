@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:background="@android:color/white"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.justjava.MainActivity">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context="com.example.android.justjava.MainActivity">
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center"
+        android:src="@drawable/coffee_cup_beans" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,6 +26,15 @@
         android:layout_marginBottom="16dp"
         android:text="Toppings"
         android:textAllCaps="true" />
+
+    <CheckBox
+        android:id="@+id/chocolate_syrup_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:text="Add Chocolate Syrup"
+        android:textSize="16sp" />
+
 
     <CheckBox
         android:id="@+id/add_whipped_cream_checkbox"
@@ -91,10 +112,5 @@
         android:textAllCaps="true"
         android:textColor="@android:color/black" />
 
-    <!--<ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="200dp"
-        android:src="@drawable/coffee_cup_beans" />-->
-
 </LinearLayout>
+</ScrollView>
