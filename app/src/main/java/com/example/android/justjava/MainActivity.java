@@ -108,11 +108,11 @@ public class MainActivity extends AppCompatActivity {
      * @return text summary
      */
     private String createOrderSummary(String name, double price, boolean whippedCream, boolean chocolate){
-        String priceMessage = "Name: " + name;
+        String priceMessage = "\nName: " + name;
         priceMessage += "\nAdd whipped cream? " + whippedCream;
         priceMessage += "\nAdd chocolate syrup? " + chocolate;
         priceMessage = priceMessage + "\nNumber of coffees: " + quantity;
-        priceMessage = priceMessage + "\nOrder total: $" + price;
+        priceMessage = priceMessage + "\nOrder total: " + NumberFormat.getCurrencyInstance().format(price);
         priceMessage = priceMessage + "\nThank You! \nYour order is on its way!";
         return priceMessage;
     }
